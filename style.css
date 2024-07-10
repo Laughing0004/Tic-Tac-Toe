@@ -1,0 +1,159 @@
+/* General Reset and Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    background-color: rgb(0, 0, 0);
+    color: aliceblue;
+    text-align: center;
+    overflow: hidden; /* Ensure the stars stay within the viewport */
+    position: relative;
+}
+
+/* Stars Background Styling */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Star Elements */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    opacity: 0.7;
+    border-radius: 50%;
+    animation: fall linear infinite;
+}
+
+/* Falling Animation for Stars */
+@keyframes fall {
+    0% {
+        transform: translateY(-100%) translateX(0);
+    }
+    100% {
+        transform: translateY(100vh) translateX(100vw);
+    }
+}
+
+/* Centering Container */
+.container {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Game Board Styling */
+.game {
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vmin;
+}
+
+/* Individual Box Styling */
+.box {
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.5);
+    font-size: 8vmin;
+    background-color: white;
+}
+
+/* Player Input Section */
+.player-input {
+    margin-bottom: 2rem;
+}
+
+.player-input input {
+    padding: 1rem;
+    font-size: 1.25rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+}
+
+.player-input button {
+    margin-top: 4rem;
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: rgb(3, 107, 36);
+    color: white;
+    border-radius: 1rem;
+    border: none;
+}
+
+/* Styling for Reset and New Game Buttons */
+#reset-btn, #new-btn {
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: rgb(3, 107, 36);
+    color: white;
+    border-radius: 1rem;
+    border: none;
+}
+
+/* Message Styling */
+#msg {
+    color: white;
+    font-size: 8vmin;
+}
+
+/* Message Container Styling */
+.msg-container {
+    height: 100vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+/* Hide Class */
+.hide {
+    display: none;
+}
+
+/* Additional CSS for stars */
+@keyframes fall {
+    0% {
+        transform: translateY(-100%) translateX(0);
+    }
+    100% {
+        transform: translateY(100vh) translateX(100vw);
+    }
+}
+
+/* Generate multiple stars */
+.stars .star:nth-child(odd) {
+    animation-duration: 10s;
+    animation-delay: 0s;
+}
+.stars .star:nth-child(even) {
+    animation-duration: 15s;
+    animation-delay: -5s;
+}
+
+/* Create a large number of stars */
+.stars .star {
+    animation: fall 20s linear infinite;
+}
+
+/* Specific colors for X and O */
+.box.o { color: crimson; }
+.box.x { color: blue; }
